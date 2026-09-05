@@ -1,0 +1,62 @@
+@use "../../utils/global.scss" as *;
+
+.home-page {
+  min-height: 100%;
+}
+
+.home-page-content {
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.home-page-tagline {
+  color: $color-text-muted;
+  font-size: 0.95rem;
+  margin: 0 0 1.75rem;
+}
+
+.home-page-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.1rem;
+}
+
+@media (min-width: $bp-sm) {
+  .home-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: $bp-md) {
+  .home-page-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .home-page-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.home-page-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: $color-text-muted;
+
+  p {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    color: $color-text;
+    margin: 0;
+  }
+
+  span {
+    font-size: 0.85rem;
+  }
+}

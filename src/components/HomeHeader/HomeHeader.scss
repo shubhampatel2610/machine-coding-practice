@@ -1,0 +1,84 @@
+@use "../../utils/global.scss" as *;
+
+.home-header {
+  border-bottom: 1px solid $color-border;
+  padding: 1.1rem 1.5rem;
+}
+
+.home-header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 1.5rem;
+
+  // Stack brand / search / github on narrow screens
+  @media (max-width: $bp-md) {
+    flex-wrap: wrap;
+  }
+}
+
+.home-header-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.home-header-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background-color: rgba($color-accent-mint, 0.12);
+  color: $color-accent-mint;
+}
+
+.home-header-name {
+  font-family: $font-display;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $color-text;
+  letter-spacing: -0.01em;
+}
+
+.home-header-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  // Full-width search bar when it wraps onto its own row on mobile
+  @media (max-width: $bp-md) {
+    order: 3;
+    width: 100%;
+
+    .search-bar {
+      max-width: 100%;
+    }
+  }
+}
+
+.home-header-github {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  flex-shrink: 0;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.home-header-github:hover {
+  color: $color-accent-mint;
+  border-color: $color-accent-mint;
+}

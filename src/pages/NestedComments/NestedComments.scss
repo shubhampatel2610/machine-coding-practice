@@ -1,0 +1,78 @@
+@use "../../utils/global.scss" as *;
+
+.nested-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.comment {
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  background-color: $color-surface;
+  padding: 0.9rem 1.1rem;
+}
+
+.comment-author {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: $color-accent-mint;
+  margin: 0 0 0.2rem;
+}
+
+.comment-text {
+  font-size: 0.9rem;
+  color: $color-text;
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+
+.comment-reply-toggle {
+  background: transparent;
+  border: none;
+  color: $color-text-muted;
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.comment-reply-toggle:hover {
+  color: $color-accent-mint;
+}
+
+.comment-reply-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.comment-reply-box input {
+  flex: 1;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid $color-border;
+  background-color: $color-bg;
+  color: $color-text;
+  font-size: 0.85rem;
+}
+
+.comment-reply-box button {
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  border: none;
+  background-color: $color-accent-mint;
+  color: $color-bg;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comment-children {
+  margin-top: 0.8rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}

@@ -1,0 +1,81 @@
+@use "../../utils/global.scss" as *;
+
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba($color-bg, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+}
+
+.page-header-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  gap: 1rem;
+}
+
+.page-header-title {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $color-text;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-header-nav-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  color: $color-text-muted;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.page-header-nav-btn:hover {
+  color: $color-accent-mint;
+  border-color: $color-accent-mint;
+  background-color: $color-surface-hover;
+}
+
+.page-header-nav-btn-icon-only {
+  padding: 0.5rem;
+
+  // Hide the text label on the secondary home button on small screens,
+  // keeping only the icon so both buttons never collide with the title
+  span {
+    display: none;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .page-header-playground-btn span {
+    display: none;
+  }
+
+  .page-header-playground-btn {
+    padding: 0.5rem;
+  }
+}

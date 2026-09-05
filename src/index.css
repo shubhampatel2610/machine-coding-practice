@@ -1,0 +1,82 @@
+/* Google Fonts - display (Space Grotesk), body (Inter), mono (JetBrains Mono) */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------
+   Design tokens exposed to Tailwind utilities, e.g. bg-bg, text-accent-mint.
+   These mirror the SCSS variables in src/utils/global.scss - keep in sync.
+------------------------------------------------------------------------- */
+@theme {
+  --color-bg: #0b0b0e;
+  --color-surface: #16161c;
+  --color-surface-hover: #1d1d25;
+  --color-border: #2a2a33;
+  --color-text: #e8e8ec;
+  --color-text-muted: #8b8b96;
+  --color-accent-mint: #5eead4;
+  --color-accent-amber: #f0b429;
+  --color-accent-rose: #fb7185;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible keyboard focus ring everywhere, for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent-mint);
+  outline-offset: 2px;
+}
+
+/* Slim, muted scrollbar to match the IDE-inspired theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 8px;
+}
+
+/* Shared wrapper for every inner page (below PageHeader): consistent max
+   width + padding so individual page .scss files don't repeat this layout */
+.page-shell {
+  min-height: 100%;
+}
+.page-shell > main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

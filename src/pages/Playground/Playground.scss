@@ -1,0 +1,311 @@
+@use "../../utils/global.scss" as *;
+
+.playground-page {
+  min-height: 100%;
+  background: $color-bg;
+}
+
+.playground-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid $color-border;
+  background: rgba($color-bg, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.playground-header-main,
+.playground-header-actions,
+.playground-kicker,
+.playground-panel-heading,
+.playground-action,
+.playground-back-link,
+.playground-saved-state {
+  display: flex;
+  align-items: center;
+}
+
+.playground-header-main,
+.playground-header-actions {
+  gap: 0.8rem;
+}
+
+.playground-header h1 {
+  margin: 0.15rem 0 0;
+  color: $color-text;
+  font-family: $font-display;
+  font-size: 1.2rem;
+}
+
+.playground-kicker {
+  gap: 0.35rem;
+  margin: 0;
+  color: $color-accent-mint;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.playground-back-link {
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid $color-border;
+  border-radius: 7px;
+  color: $color-text-muted;
+  text-decoration: none;
+}
+
+.playground-back-link:hover {
+  border-color: $color-accent-mint;
+  color: $color-accent-mint;
+}
+
+.playground-saved-state {
+  gap: 0.45rem;
+  color: $color-text-muted;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+}
+
+.playground-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-accent-mint;
+  box-shadow: 0 0 0 3px rgba($color-accent-mint, 0.12);
+}
+
+.playground-action {
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 34px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid $color-border;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: $font-body;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.playground-action-secondary {
+  background: $color-surface;
+  color: $color-text-muted;
+}
+
+.playground-action-primary {
+  border-color: $color-accent-mint;
+  background: $color-accent-mint;
+  color: $color-bg;
+}
+
+.playground-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: calc(100vh - 72px);
+}
+
+.playground-preview-panel,
+.playground-editor-panel {
+  min-width: 0;
+}
+
+.playground-preview-panel {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid $color-border;
+}
+
+.playground-editor-panel {
+  display: flex;
+  flex-direction: column;
+  background: #111116;
+}
+
+.playground-panel-heading,
+.playground-editor-tabs {
+  min-height: 46px;
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+}
+
+.playground-panel-heading {
+  justify-content: space-between;
+  padding: 0 1rem;
+  color: $color-text;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+}
+
+.playground-panel-heading span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.playground-live-label {
+  color: $color-accent-mint;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.playground-preview-canvas {
+  flex: 1;
+  min-height: 320px;
+  padding: 1.5rem;
+  background-color: #0e0e13;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.playground-error:empty {
+  display: none;
+}
+
+.playground-error {
+  padding: 0.8rem 1rem;
+  border-top: 1px solid rgba($color-accent-rose, 0.35);
+  background: rgba($color-accent-rose, 0.08);
+  color: $color-accent-rose;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  white-space: pre-wrap;
+}
+
+.playground-editor-tabs {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+}
+
+.playground-editor-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.playground-editor-tabs button:hover,
+.playground-editor-tabs button.is-active {
+  color: $color-text;
+}
+
+.playground-editor-tabs button.is-active {
+  border-bottom-color: $color-accent-mint;
+  background: #111116;
+}
+
+.file-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.file-dot-tsx { background: $color-accent-mint; }
+.file-dot-scss { background: $color-accent-amber; }
+
+.playground-editor-shell {
+  flex: 1;
+  min-height: 320px;
+  overflow: auto;
+}
+
+.playground-editor-shell .npm__react-simple-code-editor__textarea,
+.playground-editor-shell .npm__react-simple-code-editor__highlight,
+.playground-scss-editor {
+  min-height: 100%;
+  padding: 1.2rem !important;
+  font-family: $font-mono !important;
+  font-size: 0.76rem !important;
+  line-height: 1.65 !important;
+  tab-size: 2;
+}
+
+.playground-editor-shell .npm__react-simple-code-editor__textarea,
+.playground-scss-editor {
+  width: 100%;
+  min-height: 480px;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  color: $color-text;
+}
+
+.playground-scss-editor {
+  display: block;
+}
+
+.playground-editor-footer {
+  padding: 0.65rem 1rem;
+  border-top: 1px solid $color-border;
+  color: $color-text-muted;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+}
+
+.playground-missing {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem;
+}
+
+.playground-missing h1 {
+  margin: 0.5rem 0 1.5rem;
+  color: $color-text;
+  font-family: $font-display;
+}
+
+@media (max-width: $bp-md) {
+  .playground-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .playground-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .playground-workspace {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .playground-preview-panel {
+    min-height: 420px;
+    border-right: 0;
+    border-bottom: 1px solid $color-border;
+  }
+
+  .playground-editor-panel {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .playground-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .playground-preview-canvas {
+    padding: 0.8rem;
+  }
+
+  .playground-action {
+    flex: 1;
+  }
+}

@@ -1,0 +1,40 @@
+@use "../../utils/global.scss" as *;
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 480px;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-bar:focus-within {
+  border-color: $color-accent-mint;
+  box-shadow: 0 0 0 3px rgba($color-accent-mint, 0.15);
+}
+
+.search-bar-icon {
+  color: $color-text-muted;
+  flex-shrink: 0;
+}
+
+.search-bar-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: 0.95rem;
+}
+
+.search-bar-input::placeholder {
+  color: $color-text-muted;
+}

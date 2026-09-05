@@ -21,12 +21,12 @@ const PageHeader = ({ title }: PageHeaderProps) => {
         <h1 className="page-header-title">{title}</h1>
 
         <div className="page-header-actions">
-          {currentItem && (
+          {/* {currentItem && (
             <Link to={`/playground/${currentItem.id}`} className="page-header-nav-btn page-header-playground-btn">
               <Play size={16} />
               <span>Playground</span>
             </Link>
-          )}
+          )} */}
           <Link to="/" className="page-header-nav-btn page-header-nav-btn-icon-only" aria-label="Go to home">
             <Home size={18} />
           </Link>

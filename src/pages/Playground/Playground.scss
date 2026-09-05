@@ -177,6 +177,30 @@
   white-space: pre-wrap;
 }
 
+.playground-error strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: $font-display;
+  font-size: 0.78rem;
+}
+
+.playground-error ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.playground-error li {
+  line-height: 1.45;
+}
+
+.playground-error li b {
+  color: $color-text;
+}
+
 .playground-editor-tabs {
   display: flex;
   align-items: stretch;
@@ -223,30 +247,82 @@
   overflow: auto;
 }
 
-.playground-editor-shell .npm__react-simple-code-editor__textarea,
-.playground-editor-shell .npm__react-simple-code-editor__highlight,
-.playground-scss-editor {
-  min-height: 100%;
-  padding: 1.2rem !important;
+.playground-code-editor {
+  position: relative;
+  display: flex;
+  min-height: 480px;
+  color: $color-text;
+  font-family: $font-mono;
+  font-size: 0.76rem;
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+.playground-line-numbers {
+  z-index: 1;
+  flex: 0 0 3.5rem;
+  padding-top: 1.125rem;
+  border-right: 1px solid rgba($color-border, 0.65);
+  background: #0d0d12;
+  color: #626270;
+  text-align: right;
+  user-select: none;
+  transition: transform 0.05s linear;
+}
+
+.playground-line-numbers span {
+  display: block;
+  height: 1.65em;
+  padding-right: 0.8rem;
+}
+
+.playground-line-numbers .is-error-line {
+  background: rgba($color-accent-rose, 0.18);
+  color: $color-accent-rose;
+  font-weight: 600;
+}
+
+.playground-code-editor > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.playground-code-textarea,
+.playground-code-highlight {
+  min-height: 480px !important;
+  padding: 1.125rem !important;
   font-family: $font-mono !important;
   font-size: 0.76rem !important;
   line-height: 1.65 !important;
   tab-size: 2;
+  white-space: pre !important;
+  overflow-wrap: normal !important;
 }
 
-.playground-editor-shell .npm__react-simple-code-editor__textarea,
-.playground-scss-editor {
+.playground-code-textarea {
   width: 100%;
-  min-height: 480px;
   border: 0;
   outline: 0;
   resize: none;
   background: transparent;
-  color: $color-text;
+  color: transparent;
+  caret-color: $color-text;
 }
 
-.playground-scss-editor {
-  display: block;
+.playground-code-highlight {
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+.playground-error-code-line {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  left: 3.5rem;
+  pointer-events: none;
+  border-left: 2px solid $color-accent-rose;
+  background: rgba($color-accent-rose, 0.16);
 }
 
 .playground-editor-footer {
